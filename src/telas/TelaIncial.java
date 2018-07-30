@@ -76,7 +76,7 @@ public class TelaIncial extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Cadastro ");
+        jMenu2.setText("Cadastrar ");
 
         menuChamado.setText("Produto");
         menuChamado.addActionListener(new java.awt.event.ActionListener() {

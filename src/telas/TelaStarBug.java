@@ -5,6 +5,13 @@
  */
 package telas;
 
+
+
+import dao.CategoriaDAO;
+import model.Categoria;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author 181710074
@@ -17,7 +24,18 @@ public class TelaStarBug extends javax.swing.JInternalFrame {
     public TelaStarBug() {
         initComponents();
     }
-
+private void carregarCategorias(){
+        List<Categoria> listaDeCategorias= CategoriaDAO.getCategorias();
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel(); 
+        Categoria fake = new Categoria (0, "Selecione...");
+        modelo.addElement(fake);
+        
+        for (Categoria cat : listaDeCategorias){
+            modelo.addElement(cat);
+        }
+        cmbCategoria.setModel(modelo);
+                
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,6 +78,11 @@ public class TelaStarBug extends javax.swing.JInternalFrame {
 
         btnEnviar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnEnviar.setText("Enviar");
+        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnCancelar.setText("Cancelar");
@@ -231,6 +254,13 @@ public class TelaStarBug extends javax.swing.JInternalFrame {
     private void btnCadastrarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarCategoriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCadastrarCategoriaActionPerformed
+
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+String nome = txtNome.getText();
+String lote = txtLote.getText();
+Categoria cat =(Categoria) cmbCategoria.getSelectedItem();
+
+    }//GEN-LAST:event_btnEnviarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
