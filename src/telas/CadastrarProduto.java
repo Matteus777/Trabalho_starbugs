@@ -16,12 +16,12 @@ import javax.swing.DefaultComboBoxModel;
  *
  * @author 181710074
  */
-public class TelaStarBug extends javax.swing.JInternalFrame {
+public class CadastrarProduto extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form NewJInternalFrame
      */
-    public TelaStarBug() {
+    public CadastrarProduto() {
         initComponents();
     }
 private void carregarCategorias(){

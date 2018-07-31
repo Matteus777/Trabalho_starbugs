@@ -5,6 +5,9 @@
  */
 package telas;
 
+import dao.CategoriaDAO;
+import model.Categoria;
+
 /**
  *
  * @author 181710074
@@ -116,7 +119,11 @@ public class CadastrarCategoria extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
+   
+        String nome = txtNome.getText();
+        Categoria cat = new Categoria();
+        cat.setNome(nome);
+        CategoriaDAO.inserir(cat);
     }//GEN-LAST:event_btnSalvarActionPerformed
 
 

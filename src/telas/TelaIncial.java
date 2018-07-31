@@ -54,9 +54,9 @@ public class TelaIncial extends javax.swing.JFrame {
             .addGap(0, 335, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Editar");
+        jMenu1.setText("Listar");
 
-        jMenuItem1.setText("Imprimir");
+        jMenuItem1.setText("Estoque");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -65,7 +65,7 @@ public class TelaIncial extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
         jMenu1.add(jSeparator1);
 
-        jMenuItem2.setText("Fechar");
+        jMenuItem2.setText("Categorias");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -87,7 +87,12 @@ public class TelaIncial extends javax.swing.JFrame {
         jMenu2.add(menuChamado);
         jMenu2.add(jSeparator3);
 
-        jMenuItem3.setText("jMenuItem3");
+        jMenuItem3.setText("Categoria");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem3);
 
         jMenuBar1.add(jMenu2);
@@ -109,18 +114,26 @@ public class TelaIncial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+ ListProdutos tela = new ListProdutos();
+        jdpTelaInicial.add( tela );
+        tela.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+ListCategorias lc = new ListCategorias();
+jdpTelaInicial.add(lc);
+lc.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void menuChamadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuChamadoActionPerformed
-        TelaStarBug frm = new TelaStarBug();
+        CadastrarProduto frm = new CadastrarProduto();
         jdpTelaInicial.add( frm );
         frm.setVisible(true);
     }//GEN-LAST:event_menuChamadoActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
