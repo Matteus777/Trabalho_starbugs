@@ -5,11 +5,13 @@
         <group>
             <file>file:/C:/Users/181710180.SENACINFO/Documents/NetBeansProjects/Starbugs/src/model/Produto.java</file>
             <file>file:/C:/Users/181710180.SENACINFO/Documents/NetBeansProjects/Starbugs/src/dao/ProdutoDAO.java</file>
-            <file>file:/C:/Users/181710180.SENACINFO/Documents/NetBeansProjects/Starbugs/src/telas/TelaStarBug.java</file>
+            <file>file:/C:/Users/181710180.SENACINFO/Documents/NetBeansProjects/Starbugs/src/telas/CadastrarProduto.java</file>
             <file>file:/C:/Users/181710180.SENACINFO/Documents/NetBeansProjects/Starbugs/src/dao/CategoriaDAO.java</file>
+            <file>file:/C:/Users/181710180.SENACINFO/Documents/NetBeansProjects/Starbugs/src/telas/ListCategorias.java</file>
             <file>file:/C:/Users/181710180.SENACINFO/Documents/NetBeansProjects/Starbugs/src/telas/CadastrarCategoria.java</file>
             <file>file:/C:/Users/181710180.SENACINFO/Documents/NetBeansProjects/Starbugs/src/model/Categoria.java</file>
             <file>file:/C:/Users/181710180.SENACINFO/Documents/NetBeansProjects/Starbugs/src/telas/TelaIncial.java</file>
+            <file>file:/C:/Users/181710180.SENACINFO/Documents/NetBeansProjects/Starbugs/src/telas/ListProdutos.java</file>
             <file>file:/C:/Users/181710180.SENACINFO/Documents/NetBeansProjects/Starbugs/src/dao/Conexao.java</file>
         </group>
     </open-files>

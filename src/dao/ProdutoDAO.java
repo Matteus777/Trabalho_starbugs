@@ -70,7 +70,59 @@ public class ProdutoDAO {
           
           return lista;
       }
-
+    
+    
+public static Produto getProdutoByCodigo(int codigo){    
+         Produto prod = new Produto();
+          String sql = " SELECT p.codigo, p.nome, p.lote, " 
+                  + " DATE_FORMAT(p.validade'%d'),DATE_FORMAT(p.validade'%m'),DATE_FORMAT(p.validade'%Y') p.quantidade "
+                  +"DATE_FORMAT(p.fabricacao'%d'),DATE_FORMAT(p.fabricacao'%m'),DATE_FORMAT(p.fabricacao'%Y') c.codigo, c.nome"
+                  + " FROM produtos p "
+                  + " INNER JOIN categorias c ON p.codCategoria = c.codigo "
+                  + " WHERE p.codigo = "+codigo
+                  + " ORDER BY p.nome";
+          ResultSet rs = Conexao.consultar(sql);
+          
+          if (rs != null) {
+              try{
+                  rs.first();
+                      
+                      prod.setCodigo(rs.getInt(1));
+                      prod.setNome(rs .getString(2));
+                      prod.setLote(rs .getString(3));
+                      int dia =(rs.getInt(4));
+                      int mes =(rs.getInt(5));      
+                      int ano =(rs.getInt(6));
+                      Calendar data = Calendar.getInstance();
+                      data.set(ano, mes, dia);
+                      prod.setValidade(data);
+                      prod.setQuantidade(rs.getInt(7));
+                      
+                     
+                     dia = (rs.getInt(8));
+                      mes = (rs.getInt(9));
+                      ano = (rs.getInt(10));
+                      data.set(ano, mes, dia);
+                       prod.setFabricacao(data);
+                      Categoria cat = new Categoria();
+                      cat.setCodigo(rs .getInt(8));
+                      cat.setNome(rs .getString(9));
+                      
+                      
+                      prod.setCategoria(cat);
+                      
+                      
+                  
+              
+           }catch(Exception e){
+                  JOptionPane.showMessageDialog(null, e.toString());
+           }
+              
+         }
+          
+          
+          return prod;
+      }
  
     
     

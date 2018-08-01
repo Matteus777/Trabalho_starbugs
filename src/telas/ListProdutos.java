@@ -11,6 +11,8 @@ import java.awt.Component;
 import java.util.EventObject;
 import java.util.List;
 import javafx.scene.control.TableCell;
+import javax.swing.JDesktopPane;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.event.CellEditorListener;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -28,18 +30,26 @@ public class ListProdutos extends javax.swing.JInternalFrame {
     /**
      * Creates new form ListProdutos
      */
-    public ListProdutos() {
+    private JDesktopPane jdpTelaInicial;
+    public ListProdutos(JDesktopPane jdpTelaInicial) {
         initComponents();
         carregarTabela();
+        this.jdpTelaInicial = jdpTelaInicial;
     }
 private void carregarTabela(){
     String[] colunas = {"Código","Nome","Lote","Categoria","Quantidade",
-        "Validade","Fabricação"
+        "Validade","Fabricação", "Situação"
  };
     List<Produto>listaDeProdutos = ProdutoDAO.getProdutos();
     DefaultTableModel modelo = new DefaultTableModel();
     modelo.setColumnIdentifiers(colunas);
     for(Produto prod:listaDeProdutos){
+        
+    
+        String situacao = "";
+        if (prod.getQuantidade()<=3){
+            situacao = "Baixo Estoque";
+        }
         
         Object[] obj={
         prod.getCodigo(),
@@ -48,34 +58,22 @@ private void carregarTabela(){
         prod.getCategoria().getNome(),
         prod.getQuantidade(),
         prod.getValidade(),
-        prod.getFabricacao()
+        prod.getFabricacao(),
+        situacao
                 
         };
         
-        tabelaProdutos.setDefaultRenderer(Object.class, new DefaultTableCellRenderer(){
-            public Component getTableCellRendererComponent(JTable table, Object value,
-                boolean isSelected, boolean hasFocus, int row, int column) {
-            super.getTableCellRendererComponent(table, value, isSelected,
-                    hasFocus, row, column);
-            if (prod.getQuantidade()<= 3){
-                setBackground(Color.RED);
-                
-            } else {
-                setBackground(null);
-            }
-            return this;
-        }
-        });
+        
         if (prod.getQuantidade()<= 3){
          //   tabelaProdutos.getSelectedRow(setBackground(Color.red));
         
         }
+          modelo.addRow(obj);
         
-        
-        
+    } 
       
     
-        modelo.addRow(obj);
+      
     
     
     tabelaProdutos.setModel(modelo);
@@ -121,8 +119,18 @@ private void carregarTabela(){
         jScrollPane2.setViewportView(tabelaProdutos);
 
         btnDarBaixa.setText("Dar Baixa");
+        btnDarBaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDarBaixaActionPerformed(evt);
+            }
+        });
 
         btnAdd.setText("Adicionar");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -154,7 +162,52 @@ private void carregarTabela(){
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnDarBaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarBaixaActionPerformed
 
+        int linha = tabelaProdutos.getSelectedRow();
+        if (linha == -1){
+            
+        }else{
+            int codigo = (int)tabelaProdutos.getValueAt(linha, 0);
+        
+        
+        DarBaixa db= new DarBaixa(codigo);
+        jdpTelaInicial.add(db);
+        db.setVisible(true);
+        
+        }
+
+    }//GEN-LAST:event_btnDarBaixaActionPerformed
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+    
+        int linha = tabelaProdutos.getSelectedRow();
+        if (linha == -1){
+            
+        }else{
+   int codigo = (int)tabelaProdutos.getValueAt(linha, 0);
+           
+   
+   
+   Adicionar add = new Adicionar(codigo);
+            
+            
+            
+        }  
+            
+    }//GEN-LAST:event_btnAddActionPerformed
+        
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDarBaixa;
