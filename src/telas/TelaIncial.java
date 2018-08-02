@@ -132,7 +132,9 @@ lc.setVisible(true);
     }//GEN-LAST:event_menuChamadoActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+CadastrarCategoria cad = new CadastrarCategoria();
+jdpTelaInicial.add(cad);
+cad.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
