@@ -47,11 +47,11 @@ public class TelaIncial extends javax.swing.JFrame {
         jdpTelaInicial.setLayout(jdpTelaInicialLayout);
         jdpTelaInicialLayout.setHorizontalGroup(
             jdpTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 437, Short.MAX_VALUE)
+            .addGap(0, 454, Short.MAX_VALUE)
         );
         jdpTelaInicialLayout.setVerticalGroup(
             jdpTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 335, Short.MAX_VALUE)
+            .addGap(0, 330, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Listar");
