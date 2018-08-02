@@ -50,6 +50,7 @@ private void carregarTabela(){
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        setTitle("Lista de categorias");
         setPreferredSize(new java.awt.Dimension(800, 600));
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(800, 600));
